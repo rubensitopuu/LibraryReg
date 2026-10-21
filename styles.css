@@ -1,0 +1,974 @@
+:root {
+  --navy: #0b1424;
+  --hero-blue: #243b5c;
+  --nav-blue: #2f4b73;
+  --gold: #e2c47e;
+  --gold-dark: #9a7b2f;
+  --paper: #faf7f0;
+  --muted: #d8d2c4;
+  --ink: #0f1a2e;
+  --body-ink: #4a5468;
+  --site-gutter: clamp(1.5rem, 4.45vw, 4rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+}
+
+.site-container {
+  padding-right: var(--site-gutter);
+  padding-left: var(--site-gutter);
+}
+
+.site-navbar {
+  min-height: 5.1rem;
+  padding: 0.75rem 0;
+  background: var(--nav-blue);
+  border-bottom: 1px solid rgb(226 196 126 / 25%);
+}
+
+.brand {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.brand:hover,
+.brand:focus {
+  color: var(--gold);
+}
+
+.site-navbar .navbar-nav {
+  gap: 1.6rem;
+}
+
+.site-navbar .nav-link {
+  width: fit-content;
+  padding: 0.5rem 0 !important;
+  color: var(--muted);
+  font-size: 0.875rem;
+  transition: color 160ms ease;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link.active {
+  color: var(--gold);
+}
+
+.site-navbar .nav-link.active {
+  border-bottom: 1px solid var(--gold);
+}
+
+.site-navbar .login-link {
+  padding: 0.55rem 1.5rem !important;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.site-navbar .login-link:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.navbar-toggler {
+  border-color: rgb(226 196 126 / 60%);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgb(226 196 126 / 25%);
+}
+
+.hero-section {
+  padding: 5.25rem 0;
+  background: var(--hero-blue);
+  color: var(--paper);
+}
+
+.hero-copy {
+  scroll-margin-top: 2rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--gold-dark);
+  font-family: "Jost", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.hero-eyebrow {
+  margin-bottom: 1rem;
+  color: var(--gold);
+}
+
+.hero-section h1 {
+  margin: 0;
+  color: var(--paper);
+  font-family: "Crimson Text", serif;
+  font-size: clamp(3rem, 4.45vw, 4rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.hero-description {
+  max-width: 32.5rem;
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  scroll-margin-top: 2rem;
+}
+
+.hero-actions .btn {
+  border-radius: 2px;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+
+.btn-gold {
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.btn-gold:hover,
+.btn-gold:focus {
+  border-color: #efd99f;
+  background: #efd99f;
+  color: var(--ink);
+}
+
+.btn-outline-gold {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.btn-outline-gold:hover,
+.btn-outline-gold:focus {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.hero-image-frame {
+  height: 25rem;
+  padding: 0.55rem;
+  border: 1px solid #3f5e8a;
+  background: var(--navy);
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services-section {
+  padding: 6rem 0 5rem;
+  background: #e6ecf4;
+}
+
+.section-eyebrow {
+  text-align: center;
+}
+
+.services-section h2 {
+  margin: 0.6rem 0 0;
+  color: var(--ink);
+  font-family: "Crimson Text", serif;
+  font-size: 2.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.service-grid {
+  margin-top: 1.5rem;
+}
+
+.service-card {
+  height: 100%;
+  min-height: 12.5rem;
+  padding: 2.25rem 1.8rem;
+  border: 1px solid #e7dfcb;
+  background: #fff;
+}
+
+.card-accent {
+  display: block;
+  width: 2.25rem;
+  height: 2px;
+  margin-bottom: 1rem;
+  background: var(--gold);
+}
+
+.service-card h3 {
+  margin: 0 0 0.55rem;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.service-card p {
+  margin: 0;
+  color: var(--body-ink);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.statistics-section {
+  padding: 3.8rem 0;
+  border-top: 1px solid #d9cfb8;
+  border-bottom: 1px solid #d9cfb8;
+  background: #f1eada;
+}
+
+.statistic-item {
+  position: relative;
+  text-align: center;
+}
+
+.statistic-item:not(:last-child)::after {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  bottom: 15%;
+  width: 1px;
+  background: #d9cfb8;
+  content: "";
+}
+
+.statistic-value {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.25rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.statistic-label {
+  margin: 0.5rem 0 0;
+  color: var(--gold-dark);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.site-footer {
+  padding: 4.5rem 0 3rem;
+  background: var(--navy);
+  color: #b9b3a4;
+}
+
+.footer-brand {
+  display: inline-block;
+  font-size: 1.75rem;
+}
+
+.footer-heading {
+  margin: 0 0 1rem;
+  color: var(--paper);
+  font-family: "Crimson Text", serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.site-footer address,
+.footer-hours {
+  margin: 0;
+  color: #b9b3a4;
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: 1.8;
+}
+
+.site-footer a:not(.brand) {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.site-footer a:not(.brand):hover {
+  color: var(--gold);
+}
+
+.footer-rule {
+  height: 1px;
+  margin-top: 1rem;
+  background: rgb(217 207 184 / 15%);
+}
+
+.registration-page {
+  min-height: calc(100vh - 5.1rem);
+  padding: 3.5rem 0 5rem;
+  background: #e6ecf4;
+}
+
+.registration-body .site-navbar {
+  min-height: 4rem;
+  padding: 0;
+}
+
+.registration-body .registration-page {
+  min-height: calc(100vh - 4rem);
+  padding-top: 2.8rem;
+}
+
+.membership-card {
+  height: 100%;
+  min-height: 34rem;
+  padding: 3.25rem 2.25rem;
+  border: 1px solid rgb(226 196 126 / 30%);
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.membership-card h1 {
+  margin: 1rem 0 0;
+  color: var(--paper);
+  font-family: "Crimson Text", serif;
+  font-size: clamp(2.5rem, 3.5vw, 3.125rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.membership-description {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.membership-benefits {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.membership-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 3.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(217 207 184 / 15%);
+}
+
+.membership-benefits li span {
+  min-width: 2rem;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.membership-benefits li p {
+  margin: 0;
+  color: var(--paper);
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+}
+
+.registration-card {
+  height: 100%;
+  padding: 2.25rem 2.6rem;
+  border: 1px solid #e7dfcb;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.registration-card h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Crimson Text", serif;
+  font-size: clamp(1.8rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.registration-intro {
+  margin: 0.5rem 0 0;
+  color: var(--body-ink);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.registration-message {
+  margin: 1.25rem 0 0;
+  border-radius: 2px;
+  font-size: 0.875rem;
+}
+
+.registration-fields {
+  margin-top: 0;
+}
+
+.registration-fields .form-label {
+  margin-bottom: 0.25rem;
+  color: #1b2437;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.registration-fields .form-control,
+.registration-fields .form-select {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #d9cfb8;
+  border-radius: 2px;
+  background-color: #faf7f0;
+  color: #1b2437;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+
+.registration-fields .form-control:focus,
+.registration-fields .form-select:focus {
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 0.2rem rgb(226 196 126 / 25%);
+}
+
+.registration-fields .form-control.is-invalid,
+.registration-fields .form-select.is-invalid {
+  border-color: #dc3545;
+}
+
+.registration-fields .form-control.is-valid,
+.registration-fields .form-select.is-valid {
+  border-color: #198754;
+}
+
+.registration-fields .address-field {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.registration-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e7dfcb;
+}
+
+.registration-actions .btn {
+  min-width: 7rem;
+  border-radius: 2px;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+}
+
+.btn-cancel {
+  border: 1px solid #d9cfb8;
+  background: #fff;
+  color: var(--body-ink);
+}
+
+.btn-cancel:hover,
+.btn-cancel:focus {
+  border-color: var(--body-ink);
+  background: #f8f9fa;
+  color: var(--ink);
+}
+
+.members-body {
+  min-height: 100vh;
+  background: #e6ecf4;
+}
+
+.members-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.members-sidebar {
+  display: flex;
+  flex: 0 0 230px;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1.65rem 1.5rem;
+  border-right: 1px solid rgb(226 196 126 / 20%);
+  background: var(--nav-blue);
+}
+
+.members-brand {
+  margin: 0 0 2rem;
+  font-size: 1.625rem;
+}
+
+.sidebar-label {
+  margin: 0 0 0.75rem;
+  color: var(--gold);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.sidebar-nav a,
+.sidebar-home {
+  display: block;
+  padding: 0.7rem 0.8rem;
+  border-left: 2px solid transparent;
+  border-radius: 2px;
+  color: #b9b3a4;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.sidebar-nav a:hover,
+.sidebar-home:hover {
+  color: var(--gold);
+}
+
+.sidebar-nav a.active {
+  border-left-color: var(--gold);
+  background: rgb(226 196 126 / 10%);
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.sidebar-home {
+  margin-top: auto;
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 0.75rem;
+}
+
+.members-main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.5rem clamp(1.5rem, 4.2vw, 3.5rem) 4rem;
+}
+
+.members-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.45rem;
+  border-bottom: 1px solid #e7dfcb;
+}
+
+.members-header h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Crimson Text", serif;
+  font-size: 2.875rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.members-header p {
+  margin: 0.35rem 0 0;
+  color: var(--body-ink);
+  font-size: 0.875rem;
+}
+
+.btn-add-member {
+  flex-shrink: 0;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--gold);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.btn-add-member:hover,
+.btn-add-member:focus {
+  border-color: var(--gold);
+  background: var(--nav-blue);
+  color: var(--gold);
+}
+
+.members-message {
+  margin-bottom: 1rem;
+  border-radius: 2px;
+}
+
+.member-search {
+  min-height: 2.75rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d9cfb8;
+  border-radius: 2px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.875rem;
+}
+
+.members-toolbar {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(10rem, 13.75rem) minmax(10rem, 13.75rem);
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.member-filter {
+  min-height: 2.75rem;
+  border: 1px solid #d9cfb8;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #1b2437;
+  font-size: 0.8125rem;
+}
+
+.member-filter:focus {
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 0.2rem rgb(226 196 126 / 25%);
+}
+
+.member-search:focus {
+  border-color: var(--gold-dark);
+  box-shadow: 0 0 0 0.2rem rgb(226 196 126 / 25%);
+}
+
+.members-table-card {
+  overflow: hidden;
+  border: 1px solid #e7dfcb;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.members-table {
+  width: 100%;
+  min-width: 760px;
+  margin: 0;
+  border-color: #e7dfcb;
+  vertical-align: middle;
+}
+
+.members-table thead th {
+  padding: 0.9rem 1rem;
+  border-bottom-color: #d9cfb8;
+  background: #f1eada;
+  color: var(--gold-dark);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.members-table tbody td {
+  padding: 0.95rem 1rem;
+  color: #1b2437;
+  font-size: 0.8125rem;
+}
+
+.members-table .member-number {
+  width: 3.5rem;
+  color: var(--gold-dark);
+}
+
+.members-table .member-nrp {
+  letter-spacing: 0.04em;
+}
+
+.member-type {
+  white-space: nowrap;
+}
+
+.member-actions-cell {
+  min-width: 10.75rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.member-action {
+  padding: 0.2rem 0.3rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.8125rem;
+}
+
+.member-action + .member-action {
+  margin-left: 0.3rem;
+  padding-left: 0.6rem;
+  border-left: 1px solid #d9cfb8;
+}
+
+.member-action:hover,
+.member-action:focus {
+  color: var(--gold-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.member-action.delete-action {
+  color: #8c2f2f;
+}
+
+.members-empty {
+  padding: 3.5rem 1.5rem;
+  color: var(--body-ink);
+  text-align: center;
+}
+
+.members-empty h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Crimson Text", serif;
+  font-size: 1.75rem;
+}
+
+.members-empty p {
+  margin: 0.5rem 0 1.25rem;
+  font-size: 0.875rem;
+}
+
+.members-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.9rem;
+  color: var(--body-ink);
+  font-family: "Crimson Text", serif;
+  font-size: 0.8125rem;
+}
+
+.members-footer p {
+  margin: 0;
+}
+
+.member-modal {
+  border: 1px solid #e7dfcb;
+  border-radius: 2px;
+}
+
+.member-modal .modal-header,
+.member-modal .modal-footer {
+  border-color: #e7dfcb;
+}
+
+.member-modal .modal-title {
+  color: var(--ink);
+  font-family: "Crimson Text", serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.member-detail-list {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.75fr) 1.5fr;
+  margin: 0;
+  padding: 1rem 1.5rem;
+}
+
+.member-detail-list dt,
+.member-detail-list dd {
+  margin: 0;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #e7dfcb;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+.member-detail-list dt {
+  color: var(--body-ink);
+  font-weight: 500;
+}
+
+.member-detail-list dd {
+  color: var(--ink);
+}
+
+.member-modal .modal-footer .btn {
+  border-radius: 2px;
+}
+
+.edit-error-message {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 991.98px) {
+  .site-navbar .navbar-collapse {
+    padding-top: 0.75rem;
+  }
+
+  .site-navbar .navbar-nav {
+    align-items: flex-start !important;
+    gap: 0.2rem;
+  }
+
+  .site-navbar .login-link {
+    margin-top: 0.4rem;
+  }
+
+  .hero-section {
+    padding: 4rem 0;
+  }
+
+  .hero-image-frame {
+    height: clamp(18rem, 55vw, 25rem);
+  }
+
+  .services-section {
+    padding: 4.5rem 0;
+  }
+
+  .registration-page {
+    padding: 2.5rem 0;
+  }
+
+  .membership-card {
+    min-height: 0;
+  }
+
+  .members-layout {
+    display: block;
+  }
+
+  .members-sidebar {
+    min-height: auto;
+    padding: 1rem var(--site-gutter);
+  }
+
+  .members-brand {
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-label,
+  .sidebar-home {
+    display: none;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .sidebar-nav a {
+    padding: 0.55rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  .members-main {
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-section h1 {
+    font-size: clamp(2.6rem, 11vw, 3.25rem);
+  }
+
+  .hero-image-frame {
+    height: 16rem;
+  }
+
+  .services-section h2 {
+    font-size: 2.35rem;
+  }
+
+  .service-card {
+    min-height: 0;
+    padding: 1.7rem;
+  }
+
+  .statistics-section {
+    padding: 2.5rem 0;
+  }
+
+  .statistic-item:nth-child(2)::after {
+    content: none;
+  }
+
+  .statistic-item:nth-child(n + 3) {
+    margin-top: 2rem;
+  }
+
+  .statistic-value {
+    font-size: 2.7rem;
+  }
+
+  .statistic-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+  }
+
+  .membership-card,
+  .registration-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .registration-actions {
+    gap: 0.75rem;
+  }
+
+  .registration-actions .btn {
+    flex: 1;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .members-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .members-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .members-main {
+    padding-right: var(--site-gutter);
+    padding-left: var(--site-gutter);
+  }
+
+  .members-toolbar {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .members-footer {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cari, lihat, dan kelola data anggota Perpustakaan ITS.">
+    <title>Data Anggota — LibraryReg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Crimson+Text:wght@600;700&family=Inter:wght@300;400;500;600&family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body class="members-body">
+    <div class="members-layout">
+      <aside class="members-sidebar" aria-label="Navigasi petugas">
+        <a class="brand members-brand" href="index.html">LibraryReg</a>
+        <p class="sidebar-label">Petugas</p>
+        <nav class="sidebar-nav">
+          <a href="index.html">Dashboard</a>
+          <a href="registration.html">Pendaftaran</a>
+          <a class="active" href="members.html" aria-current="page">Data Anggota</a>
+          <a href="members.html">Laporan</a>
+          <a href="members.html">Pengaturan</a>
+        </nav>
+        <a class="sidebar-home" href="index.html">Kembali ke halaman depan</a>
+      </aside>
+
+      <main class="members-main">
+        <header class="members-header">
+          <div>
+            <h1>Data Anggota</h1>
+            <p>Kelola data anggota perpustakaan.</p>
+          </div>
+          <a class="btn btn-add-member" href="registration.html">+ Tambah Anggota</a>
+        </header>
+
+        <div class="alert d-none members-message" id="membersMessage" role="alert" aria-live="polite"></div>
+
+        <section class="members-toolbar" aria-label="Cari dan filter data anggota">
+          <label class="visually-hidden" for="memberSearch">Cari anggota</label>
+          <input class="form-control member-search" id="memberSearch" type="search" placeholder="Cari..." autocomplete="off">
+          <label class="visually-hidden" for="memberTypeFilter">Filter jenis keanggotaan</label>
+          <select class="form-select member-filter" id="memberTypeFilter">
+            <option value="">Semua jenis</option>
+          </select>
+          <label class="visually-hidden" for="studyProgramFilter">Filter program studi</label>
+          <select class="form-select member-filter" id="studyProgramFilter">
+            <option value="">Semua program studi</option>
+          </select>
+        </section>
+
+        <section class="members-table-card" aria-label="Daftar anggota">
+          <div class="table-responsive">
+            <table class="table members-table">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">NRP</th>
+                  <th scope="col">Prodi</th>
+                  <th scope="col">Jenis</th>
+                  <th scope="col" class="actions-heading">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="membersTableBody"></tbody>
+            </table>
+          </div>
+          <div class="members-empty d-none" id="membersEmpty" role="status">
+            <h2 id="membersEmptyTitle">Belum ada data anggota</h2>
+            <p id="membersEmptyDescription">Data anggota yang mendaftar akan muncul di sini.</p>
+            <a class="btn btn-add-member" href="registration.html">+ Tambah Anggota</a>
+          </div>
+        </section>
+
+        <footer class="members-footer">
+          <p id="membersCount">Menampilkan 0 data</p>
+          <p>Data tersimpan di perangkat ini</p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="modal fade" id="memberDetailModal" tabindex="-1" aria-labelledby="memberDetailTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <section class="modal-content member-modal">
+          <div class="modal-header">
+            <div>
+              <p class="eyebrow">Profil anggota</p>
+              <h2 class="modal-title" id="memberDetailTitle">Detail Anggota</h2>
+            </div>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <dl class="member-detail-list" id="memberDetailList"></dl>
+          <div class="modal-footer">
+            <button class="btn btn-cancel" type="button" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="modal fade" id="memberEditModal" tabindex="-1" aria-labelledby="memberEditTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <section class="modal-content member-modal">
+          <form id="memberEditForm" novalidate>
+            <div class="modal-header">
+              <div>
+                <p class="eyebrow">Data anggota</p>
+                <h2 class="modal-title" id="memberEditTitle">Edit Anggota</h2>
+              </div>
+              <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row g-3 registration-fields">
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="editFullName">Nama lengkap</label>
+                  <input class="form-control" id="editFullName" name="fullName" type="text" required>
+                  <div class="invalid-feedback">Nama lengkap wajib diisi.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="editNrp">NRP</label>
+                  <input class="form-control" id="editNrp" name="nrp" type="text" inputmode="numeric" required>
+                  <div class="invalid-feedback">NRP wajib diisi dengan angka saja.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="editStudyProgram">Program studi</label>
+                  <input class="form-control" id="editStudyProgram" name="studyProgram" type="text" required>
+                  <div class="invalid-feedback">Program studi wajib diisi.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="editMembershipType">Jenis keanggotaan</label>
+                  <select class="form-select" id="editMembershipType" name="membershipType" required>
+                    <option value="" disabled>Pilih jenis keanggotaan</option>
+                    <option value="Mahasiswa">Mahasiswa</option>
+                    <option value="Dosen">Dosen</option>
+                    <option value="Tenaga Kependidikan">Tenaga Kependidikan</option>
+                  </select>
+                  <div class="invalid-feedback">Pilih jenis keanggotaan.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="editPhone">Nomor telepon</label>
+                  <input class="form-control" id="editPhone" name="phone" type="tel" required>
+                  <div class="invalid-feedback">Nomor telepon wajib diisi.</div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="editEmail">Email</label>
+                  <input class="form-control" id="editEmail" name="email" type="email" required>
+                  <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="editAddress">Alamat</label>
+                  <textarea class="form-control address-field" id="editAddress" name="address" rows="3" required></textarea>
+                  <div class="invalid-feedback">Alamat wajib diisi.</div>
+                </div>
+              </div>
+              <div class="alert d-none edit-error-message" id="editErrorMessage" role="alert"></div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-cancel" type="button" data-bs-dismiss="modal">Batalkan</button>
+              <button class="btn btn-gold" type="submit">Simpan Perubahan</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <div class="modal fade" id="memberDeleteModal" tabindex="-1" aria-labelledby="memberDeleteTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <section class="modal-content member-modal">
+          <div class="modal-header">
+            <h2 class="modal-title" id="memberDeleteTitle">Hapus anggota?</h2>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <p id="memberDeleteDescription">Data anggota ini akan dihapus dari perangkat.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-cancel" type="button" data-bs-dismiss="modal">Batalkan</button>
+            <button class="btn btn-danger" id="confirmDeleteMember" type="button">Hapus</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="members.js"></script>
+  </body>
+</html>
